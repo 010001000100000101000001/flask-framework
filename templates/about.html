@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-{% for number in list_of_numbers %}
-<p>{{ number }}</p>
-{% endfor %}
 
 <h2>{{ page_title }}</h2>
 <p>
@@ -35,101 +32,39 @@
     The RED Light Therapy Team
 </p>
 
-<div class="row featurette">
-    <div class="col-md-7">
-        <h3>Reduce Inflammation</h3>
-        <p>
-            Near-infrared (NIR) light therapy offers a remarkable mechanism for reducing inflammation within the body.
-            When NIR wavelengths penetrate the skin, they interact with the mitochondria, the energy powerhouses of our
-            cells. This interaction triggers a cascade of cellular events, including the release of nitric oxide, a key
-            molecule involved in regulating blood flow and inflammation. Nitric oxide acts as a signaling molecule,
-            dilating blood vessels and improving circulation to the inflamed area. Additionally, NIR light therapy helps
-            to modulate immune responses, suppressing the production of pro-inflammatory cytokines while promoting
-            anti-inflammatory cytokines. By enhancing blood flow, balancing immune function, and regulating inflammatory
-            mediators, NIR light therapy provides a comprehensive approach to reducing inflammation, offering relief for
-            a wide range of inflammatory conditions, from arthritis to muscle strains.
-        </p>
-    </div>
-    <div class="col-md-5">
-        <img src="{{ url_for('static', filename='img/redlight.jpg') }}" alt="LED Red Light">
-    </div>
-</div>
-
+{% for avail in benefit %}
 
 <div class="row featurette">
-    <div class="col-md-5">
-        <img src="{{ url_for('static', filename='img/circulation.png') }}" alt="Circulation">
-    </div>
+
+    {% if loop.index % 2 != 0 %}
+
+
     <div class="col-md-7">
-        <h3>Improve Circulation</h3>
-        <p>
-            LED red light therapy has garnered significant attention for its clinical efficacy in improving circulation,
-            offering a non-invasive solution to a variety of health concerns. Numerous studies have demonstrated its
-            ability to enhance blood flow, promoting better circulation throughout the body.
-
-            At the heart of LED red light therapy's circulatory benefits lies its ability to stimulate the production of
-            nitric oxide—a vasodilator that relaxes and widens blood vessels, allowing for increased blood flow. When
-            red light wavelengths penetrate the skin, they activate enzymes within the mitochondria, leading to the
-            release of nitric oxide. This process effectively dilates blood vessels, improving the delivery of oxygen
-            and nutrients to tissues while aiding in the removal of metabolic waste products.
-
-            Moreover, LED red light therapy has been shown to stimulate the formation of new capillaries, the smallest
-            blood vessels in the body. By promoting angiogenesis, or the growth of new blood vessels, red light therapy
-            enhances the network of capillaries that supply oxygen and nutrients to tissues, further supporting optimal
-            circulation.
-
-            Clinical studies have confirmed the circulatory benefits of LED red light therapy across various
-            applications. From promoting wound healing and accelerating recovery after exercise to alleviating symptoms
-            of peripheral arterial disease, the evidence overwhelmingly supports its efficacy in enhancing blood flow
-            and circulation.
-
-            Furthermore, improved circulation contributes to a host of health benefits, including faster healing,
-            reduced inflammation, and enhanced overall wellness. Whether you're seeking relief from chronic pain, aiming
-            to optimize athletic performance, or simply looking to support your body's natural healing processes, LED
-            red light therapy offers a safe, effective, and non-invasive solution for improving circulation and
-            promoting better health from the inside out.
-        </p>
-    </div>
-</div>
-
-<div class="row featurette">
-    <div class="col-md-7">
-        <h3>Reduce Recovery Time</h3>
-        <p>
-            For athletes and fitness enthusiasts, optimizing recovery is crucial for maintaining peak performance and
-            achieving training goals. Fortunately, red light therapy offers a game-changing solution by significantly
-            reducing recovery time and enhancing overall athletic performance.
-
-            Studies have consistently shown that red light therapy accelerates the body's natural healing processes,
-            making it an invaluable tool for athletes looking to bounce back faster from intense workouts or injuries.
-            By stimulating cellular repair and regeneration, red light therapy helps to alleviate muscle soreness,
-            reduce inflammation, and promote faster recovery of damaged tissues.
-
-            One of the key mechanisms behind red light therapy's ability to expedite recovery is its impact on
-            mitochondrial function. Red and near-infrared wavelengths of light penetrate deep into the body, where they
-            are absorbed by mitochondria—the energy powerhouses of our cells. This interaction boosts ATP production,
-            the primary source of cellular energy, leading to faster repair and regeneration of tissues.
-
-            Moreover, red light therapy has been shown to enhance circulation, improving the delivery of oxygen and
-            nutrients to muscles while facilitating the removal of metabolic waste products. This increased blood flow
-            helps to reduce swelling and inflammation, allowing athletes to recover more quickly and get back to
-            training at full capacity.
-
-            In addition to its physical benefits, red light therapy also plays a role in mitigating the psychological
-            stress associated with intense training. By promoting relaxation and reducing cortisol levels, red light
-            therapy helps athletes manage fatigue and recover mentally, ensuring they are mentally prepared to tackle
-            their next workout or competition.
-
-            Athletes across various disciplines, from professional sports teams to weekend warriors, are increasingly
-            turning to red light therapy to gain a competitive edge and stay at the top of their game. With its ability
-            to accelerate recovery, reduce muscle soreness, and enhance overall performance, red light therapy has
-            become an indispensable tool for athletes looking to maximize their training results and achieve their full
-            potential. Whether you're a seasoned athlete or just starting your fitness journey, red light therapy offers
-            a safe, effective, and non-invasive way to optimize recovery and take your performance to the next level.
-        </p>
+        <h3>{{ loop.index }}. {{ avail.name }}</h3>
+        <p>{{avail.description}}</p>
     </div>
     <div class="col-md-5">
-        <img src="{{ url_for('static', filename='img/recovery.jpg') }}" alt="Recovery">
+        <img src="{{ avail.image_source }}" alt="LED Red Light" class="featurette-image image responsive">
     </div>
+
+    {% else %}
+
+    <div class="col-md-5">
+        <img src="{{ avail.image_source }}" alt="LED Red Light" class="featurette-image image responsive">
+    </div>
+    <div class="col-md-7">
+        <h3>{{ loop.index }}. {{ avail.name }}</h3>
+        <p>{{avail.description}}</p>
+    </div>
+
+    {% endif %}
+
 </div>
+
+{% if loop.index != loop.length %}
+    <hr class="featurette-divider">
+{% endif %}
+
+{% endfor %}
+
 {% endblock %}
