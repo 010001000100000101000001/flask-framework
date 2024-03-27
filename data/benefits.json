@@ -2,7 +2,8 @@
     {
       "name": "Reduce Inflammation",
       "description": "Near-infrared (NIR) light therapy offers a remarkable mechanism for reducing inflammation within the body. When NIR wavelengths penetrate the skin, they interact with the mitochondria, the energy powerhouses of our cells. This interaction triggers a cascade of cellular events, including the release of nitric oxide, a key molecule involved in regulating blood flow and inflammation. Nitric oxide acts as a signaling molecule, dilating blood vessels and improving circulation to the inflamed area. Additionally, NIR light therapy helps to modulate immune responses, suppressing the production of pro-inflammatory cytokines while promoting anti-inflammatory cytokines. By enhancing blood flow, balancing immune function, and regulating inflammatory mediators, NIR light therapy provides a comprehensive approach to reducing inflammation, offering relief for a wide range of inflammatory conditions, from arthritis to muscle strains.",
-      "image_source": "static/img/redlight.jpg"
+      "image_source": "static/img/redlight.jpg",
+      "url": "reduce-imflammation"
     },
     {
         "name": "Improve Circulation",
